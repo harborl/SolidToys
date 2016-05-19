@@ -1,7 +1,7 @@
 package io.harborl.solid.toys.filter;
 
 /**
- * A filter used to test if the term qualifies the request. <br/>
+ * A filter used to test if the term qualifies the request.
  * 
  * @author Harbor Luo
  * @since v0.0.1
@@ -10,6 +10,11 @@ package io.harborl.solid.toys.filter;
  */
 public interface Filter<T> {
   
-  /** Returns the evaluation result. */
+  /** 
+   * Returns the evaluation result.
+   * 
+   * @param t the evaluated entity type
+   * @return the evaluation result.
+   */
   boolean test(T t);
 }

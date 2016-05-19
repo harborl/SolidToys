@@ -55,6 +55,8 @@ public final class ConcurrentDispatch<T> implements Dispatch<T, String> {
    * 
    * @param level the max concurrent level
    * @return the dispatch instance
+   * 
+   * @param <T> the message type of dispatching
    */
   public static <T> Dispatch<T, String> valueOf(int level) {
     if (level <= 0) throw new IllegalArgumentException("level <= 0");

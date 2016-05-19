@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * A Stream is a collection wrapper that can be filtered with a {@linkplain Filter}.
  * It simplifies the usage of Filter operation of a collection data.
- * <br/>
+ * <br>
  * The relevant operations are thread-safe if elements of collection are immutable.
- * <p/>
+ * <p>
  * <strong>Usage:</strong>
  * <pre>{@code
  * List<String> results = Stream.valueOf(samples).filter(filter).get();
@@ -38,25 +38,45 @@ public final class Stream<T> {
         Collections.unmodifiableCollection(new ArrayList<T>(Arrays.asList(collection)));
   }
   
-  /** Creates a Stream with a collection. */
+  /** 
+   * Creates a Stream with a collection. 
+   * 
+   * @param collection the specified collection
+   * @param <T> the collection entity type
+   * @return a stream instance.
+   */
   public static <T> Stream<T> valueOf(Collection<T> collection) {
     if (collection == null) throw new NullPointerException("collection == null");
     return new Stream<T>(collection);
   }
   
-  /** Creates a Stream with a collection. */
+  /** 
+   * Creates a Stream with a collection. 
+   * 
+   * @param collection the specified collection
+   * @param <T> the collection entity type
+   * @return a stream instance.
+   * */
   public static <T> Stream<T> valueOf(T[] collection) {
     if (collection == null) throw new NullPointerException("collection == null");
     return new Stream<T>(collection);
   }
   
-  /** Injects the filter operation. */
+  /** 
+   * Injects the filter operation. 
+   * 
+   * @param filter the specified filter
+   * @return a stream instance.
+   */
   public synchronized Stream<T> filter(Filter<T> filter) {
     this.filter = filter;
     return this;
   }
 
-  /** Filters and returns the collection result with a filter operation if it exists. */
+  /** 
+   * Filters and returns the collection result with a filter operation if it exists. 
+   * @return the result collection.
+   */
   public List<T> get() {
     Filter<T> theFilter = null;
     synchronized (this) {

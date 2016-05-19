@@ -2,26 +2,23 @@ package io.harborl.solid.toys.filter;
 
 /**
  * A Condition Filter is a duty chain like {@linkplain Filter} that composes
- * a underlying filter with {@code and}, {@code or} condition operation.<p/>
- * 
- * <h5>Example:</h5>
+ * a underlying filter with {@code and}, {@code or} condition operation.
+ * <p>
  * Suppose you have four conditions that are A, B, C D,
  * and you might want to compose those conditions with different sequence and 
  * different condition operations.
- * <p/>
- * And following code will show you how to use <tt>Condition</tt> 
+ * <br>
+ * The bellow code will show you how to use <tt>Condition</tt> 
  * to build above requirement.
- * <p/>
+ * <br>
  * <tt>
  * Condition.newInstance(A).and(B).or(C).and(D).test();
- * </tt>
- * <p/>
- * <em>Which equals:</em>
- * <br/>
- * <pre>A && B || C && D</pre> 
+ * </tt><br>
+ * <i>which equals </i><br>
+ * {@code A && B || C && D }
  * 
  * @author Harbor Luo
- * @since v0.0.1
+ * @since 0.0.1
  *
  * @param <T> the test term type
  */
@@ -43,6 +40,8 @@ public class Condition<T> implements Filter<T> {
    * 
    * @param underlying the evaluation filter
    * @return a instance of the condition filter
+   * 
+   * @param <KEY> the test term type
    */
   public static <KEY> Condition<KEY> newInstance(Filter<KEY> underlying) {
     if (underlying == null) throw new NullPointerException("header filter is null");
@@ -80,7 +79,7 @@ public class Condition<T> implements Filter<T> {
   }
 
   /**
-   * The implementation details: <br/>
+   * The implementation details: <br>
    * Except for the header condition that must be a dummy type 
    * operation, other underlying conditions will be chained and tests through it's evaluate call.
    */

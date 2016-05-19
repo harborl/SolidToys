@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * regularly fetch the remote configuration of a specified URL,
  * and return the value through a <tt>get</tt> method.
  * 
- * <h5>Note</h5>
+ * <p><b>Note: </b>
  * The instance of this class is thread-safe and does not block
  * the JVM existing, so there is no any explicit shutdown method.
  * 
